@@ -1,10 +1,5 @@
 // Keeps count of the number of rounds the player has won
 var winCount = 0;
-var loseCount = 0;
-var winner = document.getElementById('js_winner');
-var score = document.getElementById('js_score')
-
-score.textContent = 'Score: ' + winCount + ' vs. ' + loseCount;
 
 // Randomly chooses between ROCK, PAPER, and SCISSORS for the computer
 function computerPlay() {
@@ -24,7 +19,6 @@ function playRound(playerSelection, computerSelection) {
                     return 'It\'s a tie! :/';
                     break;
                 case 'PAPER':
-                    loseCount += 1;
                     return 'You Lose! Paper beats Rock :(';
                     break;
                 case 'SCISSORS':
@@ -43,7 +37,6 @@ function playRound(playerSelection, computerSelection) {
                     return 'It\'s a tie! :/'
                     break;
                 case 'SCISSORS':
-                    loseCount += 1;
                     return 'You Lose! Scissors beats Paper :('
                     break;
             }
@@ -51,7 +44,6 @@ function playRound(playerSelection, computerSelection) {
         case 'SCISSORS':
             switch (computerSelection) {
                 case 'ROCK':
-                    loseCount += 1;
                     return 'You Lose! Rock beats Scissors :('
                     break;
                 case 'PAPER':
@@ -72,7 +64,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // Loops 5 rounds and logs the results to the console. Then Declares who wins depending on the score.
-/*function game() {
+function game() {
     for (var i = 0; i <= 4; i++) {
         console.log(playRound(prompt(), computerPlay()));
     }
@@ -83,38 +75,4 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log(game())*/
-
-var buttons = document.querySelectorAll('button');
-var results = document.getElementById('js_results')
-
-buttons.forEach((button) => {
-    button.addEventListener('click', () => {
-        switch(button.id) {
-            case 'js_rock':
-                results.textContent = playRound('ROCK', computerPlay());
-                break;
-            case 'js_paper':
-                results.textContent = playRound('PAPER', computerPlay());
-                break;
-            case 'js_scissors':
-                results.textContent = playRound('SCISSORS', computerPlay());
-                break;
-        }
-    })
-})
-
-
-
-document.addEventListener('click', () => {
-    score.textContent = 'Score: ' + winCount + ' vs. ' + loseCount;
-    if (winCount == 5) {
-        if (winCount == loseCount) {
-            winner.textContent = "The game is a draw :/";
-        } else if (winCount > loseCount) {
-            winner.textContent = "Congratulations! You Win the Game!"
-        } else {
-            winner.textContent = "You Lose the Game. Better luck next time."
-        }
-    }
-})
+console.log(game())

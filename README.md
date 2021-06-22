@@ -14,3 +14,7 @@ I'm creating a Rock Paper Scissors program for The Odin Project
     * Allowed to use loops if necessary
 * ~~`console.log()` the results of each round and the winner at the end~~
 * Will add a GUI later, but not during this project
+
+## June 22, 2021 Update
+* Simple GUI added, no CSS
+* Reworked program to use DOM elements instead of `console.log`
